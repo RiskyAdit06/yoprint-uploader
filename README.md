@@ -22,7 +22,6 @@ Sistem upload dan pemrosesan file CSV untuk produk dengan background job process
 
 - PHP >= 7.3
 - Composer
-- Node.js & NPM (untuk asset compilation)
 - Database (SQLite, MySQL, atau PostgreSQL)
 - Redis atau Database untuk Queue (opsional, bisa menggunakan `sync` driver)
 
