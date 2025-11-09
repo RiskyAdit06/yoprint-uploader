@@ -1,9 +1,9 @@
 {
-    "name": "laravel/laravel",
+    "name": "laravel/youprint-uploader",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The Laravel Framework Youprint Uploader.",
     "keywords": [
-        "framework",
+        "youprint",
         "laravel"
     ],
     "license": "MIT",
