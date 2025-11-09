@@ -143,9 +143,6 @@ Sistem menggunakan Laravel Queue untuk memproses file CSV di background:
 # Development
 php artisan queue:work
 
-# Production (daemon mode)
-php artisan queue:work --daemon
-
 # Dengan Redis
 php artisan queue:work redis
 ```
