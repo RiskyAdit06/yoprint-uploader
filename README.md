@@ -20,7 +20,7 @@ Sistem upload dan pemrosesan file CSV untuk produk dengan background job process
 
 ## 📋 Requirements
 
-- PHP >= 7.3
+- PHP >= 7.3 atau PHP 7.4.33 (existing local)
 - Composer
 - Database (SQLite, MySQL, atau PostgreSQL)
 - Redis atau Database untuk Queue (opsional, bisa menggunakan `sync` driver)
