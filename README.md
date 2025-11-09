@@ -31,8 +31,8 @@ Sistem upload dan pemrosesan file CSV untuk produk dengan background job process
 ### 1. Clone Repository
 
 ```bash
-git clone <repository-url>
-cd laravel
+git clone <https://github.com/RiskyAdit06/yoprint-uploader>
+cd yoprint-uploader
 ```
 
 ### 2. Install Dependencies
@@ -40,10 +40,6 @@ cd laravel
 ```bash
 # Install PHP dependencies
 composer install
-
-# Install NPM dependencies (jika diperlukan)
-npm install
-```
 
 ### 3. Environment Setup
 
@@ -54,90 +50,15 @@ cp .env.example .env
 # Generate application key
 php artisan key:generate
 ```
-
-### 4. Configure Environment
-
-Edit file `.env` dan sesuaikan konfigurasi:
-
-```env
-APP_NAME="CSV Upload System"
-APP_ENV=local
-APP_KEY=
-APP_DEBUG=true
-APP_URL=http://localhost
-
-# Database Configuration
-DB_CONNECTION=sqlite
-# atau untuk MySQL/PostgreSQL:
-# DB_CONNECTION=mysql
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=laravel
-# DB_USERNAME=root
-# DB_PASSWORD=
-
-# Queue Configuration
-QUEUE_CONNECTION=redis
-# atau untuk development:
-# QUEUE_CONNECTION=sync
-```
-
 ### 5. Database Setup
 
 ```bash
 # Run migrations
 php artisan migrate
 
-# (Opsional) Run seeders
-php artisan db:seed
-```
-
 ### 6. Storage Setup
 
 ```bash
-# Create storage link
-php artisan storage:link
-```
-
-### 7. Queue Setup (jika menggunakan Queue)
-
-```bash
-# Untuk development (sync mode), tidak perlu menjalankan queue worker
-# Untuk production, jalankan queue worker:
-php artisan queue:work
-
-# atau untuk daemon mode:
-php artisan queue:work --daemon
-```
-
-## 📁 Struktur Project
-
-```
-laravel/
-├── app/
-│   ├── Http/
-│   │   └── Controllers/
-│   │       └── UploadController.php      # Controller untuk upload
-│   ├── Jobs/
-│   │   └── ProcessCsvUpload.php          # Background job untuk proses CSV
-│   ├── Models/
-│   │   ├── Product.php                   # Model Product
-│   │   └── Upload.php                    # Model Upload
-│   └── Http/
-│       └── Resources/
-│           └── UploadResource.php        # API Resource
-├── database/
-│   └── migrations/
-│       ├── create_products_table.php
-│       └── create_uploads_table.php
-├── resources/
-│   └── views/
-│       └── uploads/
-│           └── index.blade.php           # Web interface
-└── routes/
-    ├── web.php                           # Web routes
-    └── api.php                           # API routes
-```
 
 ## 🎯 Usage
 
@@ -239,21 +160,6 @@ php artisan serve
 
 Akses aplikasi di: `http://localhost:8000`
 
-### Clear Cache
-
-```bash
-php artisan cache:clear
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
-```
-
-### Restart Queue Worker
-
-```bash
-php artisan queue:restart
-```
-
 ## 📝 Logging
 
 Log aplikasi tersimpan di `storage/logs/laravel.log`. Sistem akan mencatat:
@@ -263,61 +169,10 @@ Log aplikasi tersimpan di `storage/logs/laravel.log`. Sistem akan mencatat:
 - Error processing
 - Status upload
 
-## 🧪 Testing
-
-```bash
-# Run tests
-php artisan test
-
-# atau
-phpunit
-```
-
 ## 🔒 Security
 
 - File upload dibatasi maksimal 50MB
 - Validasi format file (hanya CSV/TXT)
-- Idempotent upload untuk mencegah duplikasi
-- File disimpan dengan nama unik untuk mencegah overwrite
-
-## 🐛 Troubleshooting
-
-### Error: "UNIQUE_KEY column not found in CSV"
-
-Pastikan file CSV memiliki kolom `UNIQUE_KEY` (case-insensitive). Cek log untuk melihat header yang terdeteksi.
-
-### Error: "File tidak ditemukan"
-
-Pastikan file sudah ter-upload dengan benar dan queue worker berjalan.
-
-### Queue tidak berjalan
-
-Pastikan queue worker berjalan:
-```bash
-php artisan queue:work
-```
-
-Atau gunakan `sync` driver untuk development:
-```env
-QUEUE_CONNECTION=sync
-```
-
-## 📄 License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-## 👥 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📞 Support
-
-Untuk pertanyaan atau masalah, silakan buat issue di repository ini.
-
----
+- Idempotent upload untuk mencegah duplikasi- File disimpan dengan nama unik untuk mencegah overwrite
 
 **Dibuat dengan ❤️ menggunakan Laravel**
